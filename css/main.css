@@ -1,0 +1,10 @@
+.gameboard {
+      height: 150px;
+      width: 150px;
+      border-style: solid;
+      border-color: #ff0000;
+      background-color: purple;
+      float: left;
+
+
+}
