@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <script src = "https://code.jquery.com/jquery-3.0.0.js"></script>
-  <script src = "js/main.js"></script>
-  <script src = "css/main.css"></script>
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <title>Tic Tac Toe</title>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Tic Tac Toe</title>
 </head>
+
 <body>
 
-  <h1>Tic Tac Toe</h1>
+    <div class="wrapper">
+    <h1>Tic Tac Toe</h1>
 
-       <div class="wrapper">
-       <div class="gameboard">
+        <div class="gameboard">
 
-           <div class="Row1">
-               <div id="cell1"></div>
-               <div id="cell2"></div>
-               <div id="cell3"></div>
-           </div>
+            <div class="Row1">
+                <div class="box" id="cell1"> </div>
+                <div class="box" id="cell2"> </div>
+                <div class="box" id="cell3"> </div>
+            </div>
 
-           <div class="Row2">
-               <div id="cell4"></div>
-               <div id="cell5"></div>
-               <div id="cell6"></div>
-           </div>
+            <div class="Row2">
+                <div class="box" id="cell4"> </div>
+                <div class="box" id="cell5"> </div>
+                <div class="box" id="cell6"> </div>
+            </div>
 
-           <div class="Row3">
-               <div id="cell7"></div>
-               <div id="cell8"></div>
-               <div id="cell9"></div>
-           </div>
+            <div class="Row3">
+                <div class="box" id="cell7"> </div>
+                <div class="box" id="cell8"> </div>
+                <div class="box" id="cell9"> </div>
+            </div>
 
-       </div>
+        </div>
 
-       <div class="button">
 
-       <button>New Game</button>
-       <button>End Game</button>
 
-       </div>
-       </div>
+
+        <div class="buttons">
+            <button id="new-game">New Game</button>
+            <button id="end-game">End Game</button>
+        </div>
+
+
+
+
+    </div>
 
 
 </body>
+
 </html>
