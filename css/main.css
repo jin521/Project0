@@ -13,9 +13,71 @@
   border-style: solid;
   border-color: white;
   background-color: black;
-
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: 10px;
 }
 
 button {
      position: relative;
+}
+
+
+.playerone, .playertwo{
+  padding-top: 50px;
+  width: 200px;
+  height:200px;
+  display: inline-block;
+}
+
+.p2 {
+  background-position-y: 0px;
+}
+
+.scoreboard{
+  width: 470px;
+  height: 200px;
+  display: inline-block;
+
+}
+
+#playerOneScoreboard, #playerTwoScoreboard {
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: black;
+  background-color: grey;
+  text-align: center;
+  display: inline-block;
+}
+
+.playerone{
+  width: 200px;
+  height: 100px;
+
+  float: left;
+  text-align:center;
+}
+
+ .playertwo {
+  width: 200px;
+  height: 100px;
+  float: right;
+  text-align:center;
+}
+
+
+button {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }

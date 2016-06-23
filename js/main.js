@@ -1,9 +1,25 @@
 $(document).ready(function() {
 
+    var player;
+    var playerOneMove;
+    var playerTwoMove;
+    var turn;
+    var counter;
+    var score1;
+    var score2;
 
-    var player = "";
-    var playerOneMove = [];
-    var playerTwoMove = [];
+    var initialize = function() {
+        turn = "playerOne";
+        playerOneMove = [];
+        playerTwoMove = [];
+        $('.box').css({'background-image': "none"});
+        counter = 0;
+        score1=0;
+        score2=0; 
+
+    }
+    initialize();  // initialize to start the game
+
     var isWinner = {
         senario1: ['cell1', 'cell2', 'cell3'],
         senario2: ['cell4', 'cell5', 'cell6'],
@@ -15,19 +31,11 @@ $(document).ready(function() {
         senario8: ['cell3', 'cell6', 'cell9'],
     }
 
-    //assign tokens to each player;
-
-    var playerOne = 'x';
-    var playerTwo = 'o';
 
 
     //decide whose turn is it
     // set the player’s turn at the start of the game
     // change the player’s turn after each turn;
-    var turn = "playerOne";
-
-
-
 
 
     //this fuction picks up who has won the game by checking if they have three in a row in any direction
@@ -36,8 +44,7 @@ $(document).ready(function() {
 
         if (player === "playerOne") {
             var playerMoves = playerOneMove;
-        }
-        if (player === "playerTwo") {
+        } else {
             var playerMoves = playerTwoMove;
         }
         if (playerMoves.join('') === isWinner.senario1.join('') ||
@@ -49,8 +56,22 @@ $(document).ready(function() {
             playerMoves.join('') === isWinner.senario7.join('') ||
             playerMoves.join('') === isWinner.senario8.join('')
         ) {
-            alert(player + ' wins! click New Game to play again !')
-            return;
+          swal({   title: "Sweet!",   text: player + "  won" ,   imageUrl: "images/goodjob.png" });
+            if (player === "playerOne") {
+                score1++;
+                $('#player1notes').text (score1)
+            } else {
+                score2++;
+                $('#player2notes').text (score2)
+            }
+            initialize();
+            return true;
+        } else if (counter === 9) {
+            swal({   title: "Oooooops!",   text: "It is a tie ! Try again !",   imageUrl: "images/bow_tie.jpg" });
+            initialize();
+            return true;
+        } else {
+          return false;
         }
 
     };
@@ -58,10 +79,11 @@ $(document).ready(function() {
 
     //this function allows each player to make moves alternatively,record the moves into two arrays for playerOne and PlayerTwo.  preventing clicking on already taken spots
     $('.box').on('click', function() {
+         counter++;
         if (turn === "playerOne") {
 
             playerMove(this, "playerOne")
-            //you can pass in anything for " this" eg. playerMove( $('.box:first'), "playerOne" ); whichever box you click on it will log cell1
+                //you can pass in anything for " this" eg. playerMove( $('.box:first'), "playerOne" ); whichever box you click on it will log cell1
 
         } else {
 
@@ -79,9 +101,12 @@ $(document).ready(function() {
             var playerMoves = playerOneMove;
             var bgImage = "url('images/redxsmall.png')";
             var nextTurn = 'playerTwo';
+
+
         } else {
             var playerMoves = playerTwoMove;
             var bgImage = "url('images/circle-small.png')";
+            $(box).addClass("p2");
             var nextTurn = 'playerOne';
         }
         if ($(box).css('background-image') !== "none") {
@@ -97,9 +122,9 @@ $(document).ready(function() {
             playerMoves = playerMoves.sort(); //sort this array to make it in numerial order
             console.log(playerMoves)
 
-            getWinner(player);
-
-            turn = nextTurn;
+            var ended = getWinner(player);
+            if (!ended)
+              turn = nextTurn;
         }
     }
 
@@ -109,15 +134,9 @@ $(document).ready(function() {
     // if one of the players win, start a new game
     $('#new-game').on('click', function() {
         console.log('start new game ')
-        $('.box').css('background-image') = "none";
-
+        initialize();
     })
 
-
-    // end the game to resume the gameboard
-    $('#end-game').on('click', function() {
-        console.log('end your game ')
-    })
 
 
 });
