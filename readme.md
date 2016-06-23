@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Game Rule
 first paragraph.
 
