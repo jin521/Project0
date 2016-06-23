@@ -57,31 +57,35 @@ $(document).ready(function() {
                         match += 1;
                     }
                 }
-
                 if (match === 3) {
-
                     swal({
                         title: "Sweet!",
                         text: player + "  won",
                         imageUrl: "images/goodjob.png"
                     });
+
+
+                    if (player === "playerOne") {
+                        score1++;
+                        $('#player1notes').text(score1)
+                    } else {
+                        score2++;
+                        $('#player2notes').text(score2)
+                    }
+
+
+
                     initialize();
                     return true;
                 }
             }
-            if (player === "playerOne") {
-                score1++;
-                $('#player1notes').text(score1)
-            } else {
-                score2++;
-                $('#player2notes').text(score2)
-            }
+
             return false; // use " true " as an identifier, don't go next turn 1
         }
         if (counter === 9) {
             swal({
                 title: "Oooooops!",
-                text: "It is a tie ! Try again !",
+                text: "It is a tie ! Try again!",
                 imageUrl: "images/bow_tie.jpg"
             });
             initialize();
@@ -89,20 +93,15 @@ $(document).ready(function() {
         } else {
             return false; // use " false " as an identifier, turn = next turn
         }
-
     };
-
 
     //this function allows each player to make moves alternatively,record the moves into two arrays for playerOne and PlayerTwo.  preventing clicking on already taken spots
     $('.box').on('click', function() {
         counter++;
         if (turn === "playerOne") {
-
             playerMove(this, "playerOne")
                 //you can pass in anything for " this" eg. playerMove( $('.box:first'), "playerOne" ); whichever box you click on it will log cell1
-
         } else {
-
             playerMove(this, "playerTwo")
         }
     });
@@ -115,7 +114,7 @@ $(document).ready(function() {
     var playerMove = function(box, player) {
         if (player === 'playerOne') {
             var playerMoves = playerOneMove;
-            var bgImage = "url('images/redxsmall.png')";
+            var bgImage = "url('images/Redcrossnew.png')";
             var nextTurn = 'playerTwo';
 
 
