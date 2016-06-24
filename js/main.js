@@ -47,7 +47,7 @@ $(document).ready(function() {
             var playerMoves = playerTwoMove;
         }
 
-        playerMoves.sort();
+        // playerMoves.sort();
 
         if (counter < 9) {
             for (var i = 0; i < scenarios.length; i++) {
@@ -76,11 +76,10 @@ $(document).ready(function() {
 
 
                     initialize();
-                    return true;
+                    return true;//use " true " as an identifier, don't go next turn 1
                 }
             }
 
-            return false; // use " true " as an identifier, don't go next turn 1
         }
         if (counter === 9) {
             swal({
